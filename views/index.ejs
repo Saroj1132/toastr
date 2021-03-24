@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+ 
+  <title>Document</title>
+</head>
+<body>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+  <% let first_array = []%>
+  <% success.forEach(function(msg){ %>
+      
+          <%first_array.push(msg)%>
+
+
+      <% }) %>
+      <% let second_array = []%>
+
+      <% errors.forEach(function(err){ %>
+
+              <%second_array.push(err)%>
+
+          <% }) %>
+          <% let third_array = []%>
+
+          <% warnings.forEach(function(war){ %>
+    
+            <%third_array.push(war)%>
+
+        <% }) %>
+        <% let fourth_array = []%>
+
+        <% infos.forEach(function(info){ %>
+    
+          <%fourth_array.push(info)%>
+
+      <% }) %>
+
+  <form action="/" method="post">
+    <table>
+      
+    
+        <tr>
+          <td></td>
+          <td><button>generate Toastr</button></td>
+        </tr>
+      
+      </table>
+
+      <p style="color: red; font-weight: bold;"><%=status%></p>
+  </form>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+  
+
+<script>
+    $(document).ready(function() {
+      let toastme= "<%=first_array%>"
+  
+      if(toastme  != ''){
+        toastr.success(toastme)
+  
+      }
+    })
+  
+  
+    $(document).ready(function() {
+      let toastme= "<%=second_array%>"
+  
+      if(toastme  != ''){
+        toastr.error(toastme)
+  
+      }
+    })
+
+    
+    $(document).ready(function() {
+      let toastme= "<%=third_array%>"
+  
+      if(toastme  != ''){
+        toastr.warning(toastme)
+  
+      }
+    })
+
+    $(document).ready(function() {
+      let toastme= "<%=fourth_array%>"
+  
+      if(toastme  != ''){
+        toastr.info(toastme)
+  
+      }
+    })
+
+    
+  </script>
+ 
+</body>
+</html>
